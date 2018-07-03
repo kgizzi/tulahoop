@@ -1,8 +1,6 @@
 tulahoop
 =============
 
-# Overview of Project
-
 **The world needs more smart LED hula hoops!**
  This guide is intended for do-it-yourselfers and *not* for profit use. The goal is to create an open source #DIYSMARTHOOP community.
  I hope this guide and code is a good starting place for those interested in making smart LED hula hoops.
