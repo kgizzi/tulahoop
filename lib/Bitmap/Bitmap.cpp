@@ -136,10 +136,10 @@ template<typename SourceType> BMP_Status Bitmap::_load(SourceType &source)
   // Calculate width in bytes (4-byte boundary aligned)
   row_bytes = (row_bits/8 + 3) & ~3;
 
-  if (HOOP_DEBUG) {
+#ifdef HOOP_DEBUG
     Serial.print(F("BPP: "));
     Serial.println(bpp);
-  }
+#endif
 
   if(bpp < 16) {
     uint16_t palette_size = 1<<bpp;

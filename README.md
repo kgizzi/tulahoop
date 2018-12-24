@@ -113,6 +113,10 @@ This mode can play bitmap images which are converted from file format to a C Hea
 | Button(s) | Action |
 | --------- |------- |
 | Right / Left | Change image pattern |
+| Play (Pause) | Toggle auto cycle mode |
+| 1 | Auto cycle time of 2 seconds |
+| 2 | Auto cycle time of 5 seconds |
+| 3 | Auto cycle time of 10 & 30 seconds | 
 
 ##### Pattern Mode
 

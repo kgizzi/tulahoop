@@ -1,5 +1,5 @@
 /*
- * Hoop v3
+ * tulahoop
  *
  * Written By: Keenan Gizzi
  */
@@ -13,11 +13,11 @@ int mode = MODE_IMAGE;
 
 // LEDs
 #include <FastLED.h>
-#define DATA_PIN 3
-#define CLOCK_PIN 2
+#define DATA_PIN 4
+#define CLOCK_PIN 3
 #define NUM_LEDS 123
 CRGB leds[NUM_LEDS];
-int brightness = 100;
+int brightness = 72;
 
 // Solid Colors
 const CRGB PROGMEM colors[] = {
@@ -31,8 +31,15 @@ int chaserIndex = 1;
 int chaserCount = 0;
 
 bool chaserMoving = false;
-uint32_t lastLineTime  = 0L; // Time last scan line was output
 uint8_t tick = 0;
+
+// Auto Cycle / Timers
+bool autoCycle = false;
+#include "timer.h"
+int cycleCount = 0;
+int cycleTimeIndex = 1;
+const int PROGMEM cycleTime[] = { 2, 5, 10, 30 };
+#define NUM_TIMES (sizeof(cycleTime) / sizeof(cycleTime[0]))
 
 // Images
 #include <Bitmap.h>
@@ -41,27 +48,13 @@ Bitmap currentBitmap;
 int imageNumber = 0;
 #include "images.h"
 
-// Microseconds per line for various speed settings
-const uint16_t PROGMEM lineTable[] = { // 375 * 2^(n/3)
-  1000000L /  3,
-  1000000L /  375, // 375 lines/sec = slowest
-  1000000L /  472,
-  1000000L /  595,
-  1000000L /  750, // 750 lines/sec = mid
-  1000000L /  945,
-  1000000L / 1191,
-  1000000L / 1500  // 1500 lines/sec = fastest
-};
-#define NUM_SPEEDS (sizeof(lineTable) / sizeof(lineTable[0]))
-uint8_t  lineIntervalIndex = 3;
-
 // IR Remote
 #include <IRLibRecv.h>
 #include <IRLibDecodeBase.h>
 #include <IRLib_P01_NEC.h>
 #include "remote.h"
 
-IRrecv irReceiver(0); // Pin 0
+IRrecv irReceiver(2); // Pin 0
 IRdecodeNEC remoteDecoder;
 
 void setup() {
@@ -76,6 +69,9 @@ void setup() {
   FastLED.setMaxRefreshRate(3000);
   FastLED.clear();
   FastLED.setBrightness(brightness);
+
+  // Set up timer
+  startTimer(1); // frequency of 1 sec
 }
 
 
@@ -90,7 +86,7 @@ void loop() {
     remoteControl(remoteDecoder.value);
 
     // Debug output
-    if (HOOP_DEBUG) {
+#ifdef HOOP_DEBUG
       Serial.print(F("Image: "));
       Serial.println(imageNumber);
       Serial.print(F("Mode: "));
@@ -98,16 +94,10 @@ void loop() {
       Serial.print(F("Brightness: "));
       Serial.println(brightness);
       Serial.print("\n");
-    }
+#endif
 
     irReceiver.enableIRIn();      //Restart receiver
   }
-
-  uint32_t t = millis(); // Current time, milliseconds
-
-  // This is if we want to regulate how fast each scan line gets output
-  // Should be calculated from IMU motion
-  if (((t = micros()) - lastLineTime) < lineTable[lineIntervalIndex]) return;
 
   // Display LEDs
   if (mode == MODE_PATTERN) {
@@ -125,5 +115,27 @@ void loop() {
   }
 
   FastLED.show();
-  lastLineTime = t;
+}
+
+// Clock interrupt handler
+void TC3_Handler() {
+  TcCount16* TC = (TcCount16*) TC3;
+  if (TC->INTFLAG.bit.MC0 == 1) {
+    TC->INTFLAG.bit.MC0 = 1;
+
+    // Write callback here!!!
+    Serial.print("cycleCount: ");
+    Serial.println(cycleCount);
+
+    if (cycleCount >= cycleTime[cycleTimeIndex]-1) {
+      cycleCount = 0;
+      if(++imageNumber >= NUM_IMAGES) imageNumber = 0;
+      currentBitmap.next();
+
+      Serial.println("auto incrementing image");
+    } else {
+      cycleCount = cycleCount + 1;
+    }
+
+  }
 }

@@ -88,6 +88,12 @@ void remoteControl(uint32_t command) {
           return;
         }
 
+        // Toggle chaser moving mode
+        if (command == IR_3) {
+          chaserMoving = !chaserMoving;
+          return;
+        }
+
         // Number of Chasers
         if (command == IR_UP) {
           if ((chaserCount+1)> 7) { return; }
@@ -114,30 +120,45 @@ void remoteControl(uint32_t command) {
           return;
         }
 
-      }
+        // Toggle auto cycle
+        if (command == IR_PLAY) {
+          autoCycle = !autoCycle;
+          return;
+        }
 
-      // DEBUG:
-      // Toggle chaser moving mode
-      if (command == IR_3) {
-        chaserMoving = !chaserMoving;
-        return;
+        // Increase auto cycle times
+        if (command == IR_BACK) {
+          if(++cycleTimeIndex >= NUM_TIMES) cycleTimeIndex = 0;
+          return;
+        }
+
+        // Cycle time of 2 seconds
+        if (command == IR_1) {
+          cycleTimeIndex = 0;
+          return;
+        }
+
+        // Cycle time of 5 seconds
+        if (command == IR_2) {
+          cycleTimeIndex = 1;
+          return;
+        }
+
+        // Cycle time of 10 & 30 seconds
+        if (command == IR_3) {
+          if (cycleTimeIndex == 2) {
+            cycleTimeIndex = 3;
+          } else {
+            cycleTimeIndex = 2;
+          }
+          return;
+        }
+
       }
 
       // Debug moving mode
       if (command == IR_6) {
         tick++;
-        return;
-      }
-
-      // Display speed
-      if (command == IR_8) {
-        if(--lineIntervalIndex < 0) {
-          lineIntervalIndex = 0;
-        }
-        return;
-      }
-      if (command == IR_9) {
-        if(++lineIntervalIndex >= NUM_SPEEDS) lineIntervalIndex = NUM_SPEEDS - 1;
         return;
       }
 
