@@ -71,8 +71,8 @@
 #include "images/strobe_tex_sunset_wiggle_w.h"
 #include "images/sunrise_psychedelic.h"
 #include "images/sunset_gradient_chaser.h"
-#include "images/tiles_rainbow.h"
-#include "images/trippy_triangles.h"
+//#include "images/tiles_rainbow.h"
+//#include "images/trippy_triangles.h"
 
 const uint8_t* PROGMEM images[] {
   chaser_sparkle,
@@ -146,9 +146,9 @@ const uint8_t* PROGMEM images[] {
   strobe_tex_sunset_05,
   strobe_tex_sunset_wiggle_w,
   sunrise_psychedelic,
-  sunset_gradient_chaser,
-  tiles_rainbow,
-  trippy_triangles
+  sunset_gradient_chaser
+//  tiles_rainbow,
+//  trippy_triangles
 };
 
 #define NUM_IMAGES (sizeof(images) / sizeof(images[0]))

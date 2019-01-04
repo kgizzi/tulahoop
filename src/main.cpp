@@ -6,6 +6,21 @@
 
 //#define HOOP_DEBUG
 
+/*
+
+## Demo Hoop Pins
+DATA_PIN  4
+CLOCK_PIN 3
+IR_PIN    2
+
+## Production Hoop Pins
+DATA_PIN  3
+CLOCK_PIN 2
+IR_PIN    0
+
+*/
+
+
 // Modes
 #define MODE_PATTERN  1
 #define MODE_IMAGE    2
@@ -34,7 +49,7 @@ bool chaserMoving = false;
 uint8_t tick = 0;
 
 // Auto Cycle / Timers
-bool autoCycle = false;
+bool autoCycle = true; // default to auto cycle on
 #include "timer.h"
 int cycleCount = 0;
 int cycleTimeIndex = 1;
