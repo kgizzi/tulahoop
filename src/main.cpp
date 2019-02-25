@@ -56,6 +56,17 @@ int cycleTimeIndex = 1;
 const int PROGMEM cycleTime[] = { 2, 5, 10, 30 };
 #define NUM_TIMES (sizeof(cycleTime) / sizeof(cycleTime[0]))
 
+// Overlay
+int overlayTime = 0;
+CRGB overlayColor = CRGB::White;
+int overlayPercent = 0;
+
+void setOverlay(int time, CRGB color, int percent) {
+  overlayTime = time;
+  overlayColor = color;
+  overlayPercent = percent;
+};
+
 // Images
 #include <Bitmap.h>
 Bitmap currentBitmap;
@@ -129,6 +140,17 @@ void loop() {
     tick++;
   }
 
+  // Overlay
+  if (overlayTime > 0) {
+    // background
+    fill_solid(leds, FastLED.size(), CRGB::Black);
+    //fill_solid(leds, (int)((overlayPercent/100)*FastLED.size()), overlayColor);
+    Serial.println((overlayPercent/100.0)*NUM_LEDS);
+    for (int i=0; i <= (overlayPercent/100.0)*NUM_LEDS; i++) {
+      leds[i] = overlayColor;
+    }
+  }
+
   FastLED.show();
 }
 
@@ -152,5 +174,6 @@ void TC3_Handler() {
       cycleCount = cycleCount + 1;
     }
 
+    if (overlayTime > 0) { overlayTime--; };
   }
 }
