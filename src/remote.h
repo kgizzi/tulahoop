@@ -135,12 +135,14 @@ void remoteControl(uint32_t command) {
         // Cycle time of 2 seconds
         if (command == IR_1) {
           cycleTimeIndex = 0;
+          setOverlay(2, CRGB::Green, 25);
           return;
         }
 
         // Cycle time of 5 seconds
         if (command == IR_2) {
           cycleTimeIndex = 1;
+          setOverlay(2, CRGB::Green, 50);
           return;
         }
 
@@ -148,8 +150,10 @@ void remoteControl(uint32_t command) {
         if (command == IR_3) {
           if (cycleTimeIndex == 2) {
             cycleTimeIndex = 3;
+            setOverlay(2, CRGB::Green, 100);
           } else {
             cycleTimeIndex = 2;
+            setOverlay(2, CRGB::Green, 75);
           }
           return;
         }
@@ -167,11 +171,13 @@ void remoteControl(uint32_t command) {
         Serial.println(F("VOL UP\n"));
         if ((brightness+5) < 200) brightness = brightness+7;
         FastLED.setBrightness(brightness);
+        setOverlay(1, CRGB::White, (int)((brightness/200.0)*100.0));
       }
       if (command == IR_VOL_DN) {
         Serial.println(F("VOL DOWN\n"));
         if ((brightness-5) > 0) brightness = brightness-7;
         FastLED.setBrightness(brightness);
+        setOverlay(1, CRGB::White, (int)((brightness/200.0)*100.0));
       }
 
 }
