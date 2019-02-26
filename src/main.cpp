@@ -164,14 +164,16 @@ void TC3_Handler() {
     Serial.print("cycleCount: ");
     Serial.println(cycleCount);
 
-    if (cycleCount >= cycleTime[cycleTimeIndex]-1) {
-      cycleCount = 0;
-      if(++imageNumber >= NUM_IMAGES) imageNumber = 0;
-      currentBitmap.next();
+    if (autoCycle) {
+      if (cycleCount >= cycleTime[cycleTimeIndex]-1) {
+        cycleCount = 0;
+        if(++imageNumber >= NUM_IMAGES) imageNumber = 0;
+        currentBitmap.next();
 
-      Serial.println("auto incrementing image");
-    } else {
-      cycleCount = cycleCount + 1;
+        Serial.println("auto incrementing image");
+      } else {
+        cycleCount = cycleCount + 1;
+      }
     }
 
     if (overlayTime > 0) { overlayTime--; };
