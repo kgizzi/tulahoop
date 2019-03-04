@@ -24,11 +24,12 @@ IR_PIN    0
 // Modes
 #define MODE_PATTERN  1
 #define MODE_IMAGE    2
+#define IR_PIN        0
 int mode = MODE_IMAGE;
 
 // LEDs
 #include <FastLED.h>
-#define DATA_PIN 4
+#define DATA_PIN 2
 #define CLOCK_PIN 3
 #define NUM_LEDS 123
 CRGB leds[NUM_LEDS];
@@ -80,7 +81,7 @@ int imageNumber = 0;
 #include <IRLib_P01_NEC.h>
 #include "remote.h"
 
-IRrecv irReceiver(2); // Pin 0
+IRrecv irReceiver(IR_PIN); // Pin 0
 IRdecodeNEC remoteDecoder;
 
 void setup() {
@@ -146,7 +147,7 @@ void loop() {
     fill_solid(leds, FastLED.size(), CRGB::Black);
     //fill_solid(leds, (int)((overlayPercent/100)*FastLED.size()), overlayColor);
     Serial.println((overlayPercent/100.0)*NUM_LEDS);
-    for (int i=0; i <= (overlayPercent/100.0)*NUM_LEDS; i++) {
+    for (int i=0; i <= ((overlayPercent/100.0)*NUM_LEDS)-1; i++) {
       leds[i] = overlayColor;
     }
   }
@@ -164,14 +165,16 @@ void TC3_Handler() {
     Serial.print("cycleCount: ");
     Serial.println(cycleCount);
 
-    if (cycleCount >= cycleTime[cycleTimeIndex]-1) {
-      cycleCount = 0;
-      if(++imageNumber >= NUM_IMAGES) imageNumber = 0;
-      currentBitmap.next();
+    if (autoCycle) {
+      if (cycleCount >= cycleTime[cycleTimeIndex]-1) {
+        cycleCount = 0;
+        if(++imageNumber >= NUM_IMAGES) imageNumber = 0;
+        currentBitmap.next();
 
-      Serial.println("auto incrementing image");
-    } else {
-      cycleCount = cycleCount + 1;
+        Serial.println("auto incrementing image");
+      } else {
+        cycleCount = cycleCount + 1;
+      }
     }
 
     if (overlayTime > 0) { overlayTime--; };

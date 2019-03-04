@@ -134,6 +134,7 @@ void remoteControl(uint32_t command) {
 
         // Cycle time of 2 seconds
         if (command == IR_1) {
+          cycleCount = 0;
           cycleTimeIndex = 0;
           setOverlay(2, CRGB::Green, 25);
           return;
@@ -141,6 +142,7 @@ void remoteControl(uint32_t command) {
 
         // Cycle time of 5 seconds
         if (command == IR_2) {
+          cycleCount = 0;
           cycleTimeIndex = 1;
           setOverlay(2, CRGB::Green, 50);
           return;
@@ -148,6 +150,7 @@ void remoteControl(uint32_t command) {
 
         // Cycle time of 10 & 30 seconds
         if (command == IR_3) {
+          cycleCount = 0;
           if (cycleTimeIndex == 2) {
             cycleTimeIndex = 3;
             setOverlay(2, CRGB::Green, 100);
