@@ -1,6 +1,6 @@
 
 // Generated with bin2header.py by Freetronics
-// Source file name: /Users/keenan/Downloads/hoop_rootwire/round3/triagonal_grid_1bt.bmp
+// Source file name: /Users/keenan/Downloads/tulahoop_patterns2.19/triagonal_grid_1bt.bmp
 
 #include <stdint.h>
 

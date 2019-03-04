@@ -5,7 +5,7 @@ do
   python bin2header.py $f
   header=${f%.*p}
   echo "Header: $header.h"
-  cp $header.h ../src/images/
+  mv $header.h ../src/images/
   echo " "
 done
 
