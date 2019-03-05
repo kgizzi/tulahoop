@@ -1,6 +1,6 @@
 # Hoop Assembly Guide
 
-### Battery Pieces
+## Battery Pieces
 
 ![image](https://github.com/kgizzi/tulahoop/blob/master/guide/battery_2.JPG)
 
@@ -19,7 +19,7 @@
 3. Make multiples!
 
 
-### Prepare the Hoop
+## Prepare the Hoop
 
 1. Determine the size hoop you want to make and cut that length of 3/4 inch polypro tubing.
 
@@ -30,7 +30,7 @@
 3. Using the dremel, sand down the ends of the hoop so they fit neatly together.
 
 
-### IR Receiver
+## IR Receiver
 
 ![image](https://github.com/kgizzi/tulahoop/blob/master/guide/ir_1.jpg)
 
@@ -43,7 +43,7 @@
 ![image](https://github.com/kgizzi/tulahoop/blob/master/guide/ir_3.jpg)
 
 
-### LED Strip
+## LED Strip
 
 ![image](https://github.com/kgizzi/tulahoop/blob/master/guide/led_1.jpg)
 
@@ -58,7 +58,7 @@
 3. Using plyers, gently bend the capacitor back behind the LED strip. The wires should run under it.
 
 
-### Controller
+## Controller
 
 ![image](https://github.com/kgizzi/tulahoop/blob/master/guide/controller_1.jpg)
 
@@ -81,7 +81,7 @@
 6. Lastly solder the battery and ground wires of the IR sensor to the underside of the LED strip. I chose to use some scotch tape temporarily to hold everything in place.
 
 
-### Final Assembly (Positive End)
+## Final Assembly (Positive End)
 
 ![image](https://github.com/kgizzi/tulahoop/blob/master/guide/final_1.jpg)
 
@@ -133,7 +133,7 @@ The density of the LED strip is 60 LEDs per meter = 140 LEDs (rounding up)
 
 14. Locate the nut on the inner tubing and drill a hole on the outer tubing to line up with it and thread the M3x8mm thread into place. Congrats, the positive end of the hoop is complete!
 
-### Final Assembly (Negative End)
+## Final Assembly (Negative End)
 
 1. With the light strip sticking out of the negative end, you will want to insert the 5/8 inner tubing most of the way into the outer tubing but do not push it all the way in! Leave room to pull it back out (using plyers if necessary).
 

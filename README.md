@@ -136,6 +136,7 @@ This mode is a background color with a configurable chaser overlay.
 | Right / Left | Change background color |
 | Up / Down | Add/remove chasers |
 | 1 | Change color of chaser |
+| 3 | Toggle chaser moving |
 
 ##### Brightness Control
 
