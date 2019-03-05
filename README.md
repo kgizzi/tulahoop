@@ -27,18 +27,28 @@ View a demo video of the hoop here: https://youtu.be/MMnCFZ5w8NA
 * IR Sensor (https://www.adafruit.com/product/157)
 * Adafruit Remote Control (https://www.adafruit.com/product/389)
 * 3.7v 2300mah 14500 li-ion rechargeable batteries (look up GTL brand on ebay)
+* 6.3v 1000uF capacitor
 
 ## Hoop Materials
 * 3/4 inch Polypro tubing
 * 5/8 inch polypro tubing (for connector)
 * Springs for the battery
 * Push button (https://www.hoopologie.com/small-snap-buttons)
+* M3x3mm thread insert nuts (https://www.amazon.com/100pcs-Thread-Insert-Threaded-Inserts/dp/B07K1SJN8B/ref=sr_1_8?keywords=M3x3mm+threaded+nut+insert&qid=1551748254&s=gateway&sr=8-8)
+* M3x8mm hex socket screws (https://www.amazon.com/gp/product/B01AXVSKUM/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
 
 ## Assembly Tools
 * Soldering Iron & Solder
 * 18 Gauge stranded wire
+* Helping Hands (optional)
+* 2.5mm heat shrink tubing
+* Heat gun
 * Rivet gun & Rivets
 * Hot glue gun
+* Drill with bits
+* Dremel
+* Plyers
+* Electrical tape
 * Engineering skills and/or ultra craftiness
 * A hooper with hoop making experience
 * Patience
@@ -114,7 +124,7 @@ This mode can play bitmap images which are converted from file format to a C Hea
 | Play (Pause) | Toggle auto cycle mode |
 | 1 | Auto cycle time of 2 seconds |
 | 2 | Auto cycle time of 5 seconds |
-| 3 | Auto cycle time of 10 & 30 seconds | 
+| 3 | Auto cycle time of 10 & 30 seconds |
 
 ##### Pattern Mode
 
