@@ -55,7 +55,7 @@ View a demo video of the hoop here: https://youtu.be/MMnCFZ5w8NA
 
 # Hoop Assembly
 
-*TODO: Detailed assembly instructions to follow...*
+Please see [ASSEMBLY.md](https://github.com/kgizzi/tulahoop/blob/master/ASSEMBLY.md)
 
 ## Instructions
 

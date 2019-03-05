@@ -2,15 +2,15 @@
 
 ### Battery Pieces
 
-battery_2.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/battery_2.jpg)
 
-battery_3.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/battery_3.jpg)
 
 1. Screw a spring onto the plastic end piece and solder wire to the other side. Make multiples.
 
-battery_4.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/battery_4.jpg)
 
-battery_5.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/battery_5.jpg)
 
 2. We got creative and used split material to mold the end piece to fit securely inside the 5/8 tubing. We are open to suggestions with how to improve the battery pieces.
 
@@ -28,43 +28,43 @@ battery_5.jpg
 
 ### IR Receiver
 
-ir_1.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/ir_1.jpg)
 
 1. Solder the data, ground and positive wires (about 4-5 inches long) onto the ends of the IR sensor.
 
-ir_2.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/ir_2.jpg)
 
 2. Slip the 2.5mm heat shrink tubing (~1 inch) over the connections, as close to the IR sensor as possible and use the heat gun to shrink them into place.
 
-ir_3.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/ir_3.jpg)
 
 
 ### LED Strip
 
-led_1.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/led_1.jpg)
 
 1. Solder the 1000uF capacitor to the correct side of the APA102 LED strip. The arrows should be pointing away from the capacitor. The negative side of the capacitor has a stripe on it.
 
-led_2.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/led_2.jpg)
 
 2. Solder on a wire each to the data and clock pads on the same end of the LED strip. Make sure are long enough to attach to the controller (~6 inches).
 
-led_3.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/led_3.jpg)
 
 3. Using plyers, gently bend the capacitor back behind the LED strip. The wires should run under it.
 
 
 ### Controller
 
-controller_1.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/controller_1.jpg)
 
 1. Solder battery and ground wires (~4-5 inches) facing upwards to the top of the Trinket M0.
 
-controller_2.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/controller_2.jpg)
 
 2. Choose an appropriate placement for where the controller will rest on the underside of the LED strip. You will want it to be positioned between ~4 to 5 inches from the end of the LED strip. Line that section on the back side with electrical tape, so connections to the board will not touch the pads on the LED strip.
 
-controller_3.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/controller_3.jpg)
 
 3. Solder the DATA wire to pin 3 and solder the CLK wire to pin 2. I chose to solder the wires coming up from underneath the controller. The micro USB port should be facing away from the end of the LED strip where the capacitor is located.
 
@@ -72,35 +72,35 @@ controller_3.jpg
 
 5. At this point, all of the connections to the controller have been soldered in place. Now, solder the battery and ground wires of the controller to the LED strip. I chose to solder the battery wire to the underside of the LED strip (pictured below in final assembly), and soldered the ground wire to the front side of the LED strip.
 
-controller_4.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/controller_4.jpg)
 
 6. Lastly solder the battery and ground wires of the IR sensor to the underside of the LED strip. I chose to use some scotch tape temporarily to hold everything in place.
 
 
 ### Final Assembly (Positive End)
 
-final_1.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/final_1.jpg)
 
 1. Go ahead and hot glue the positive and negative wires for the controller to the LED strip to reenforce the connections.
 
-final_2.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/final_2.jpg)
 
 2. Slide a 2 inch piece of the 5/8 tubing (inner) over the capacitor. This is an important step!
 
-final_3.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/final_3.jpg)
 
 3. Solder on the battery connector as close as possible to the positive side of the capacitor. Try to align the piece as best as possible with the LED strip.
 
 4. Now would be a good time to test the whole thing, if you haven't already. Program the controller and hold the positive end of a battery to the battery piece and using a wire attached to the negative end of the opposte end of the light strip. It should light up! You may also want to test the remote is working too. Once it is in the hoop, it's not very easy to fix.
 
-final_4.jpg
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/final_4.jpg)
 
 5. Hot glue the battery piece to the end of the LED strip. Feel free to use more hot glue than pictured.
 
 6. Slide the tubing up to the battery piece and rest in place.
 
 
-*Below is a work in progress*
+**Below is a work in progress**
 
 
 <image needed here>
@@ -119,7 +119,7 @@ The density of the LED strip is 60 LEDs per meter = 140 LEDs (rounding up)
 
 10. Modify the code in src/main.cpp and set `NUM_LEDS` to 140. Upload the program to the controller as explained in README.md. Test the strip again by pressing the ends to a battery and make sure it is working correctly.
 
-*Below is even more of a work in progress*
+**Below is even more of a work in progress**
 
 11. Attach some padding to the back side of the LED strip but be careful not to put too much as it will make it difficult to pull through the tubing.
 
