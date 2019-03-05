@@ -14,7 +14,7 @@
 
 2. We got creative and used split material to mold the end piece to fit securely inside the 5/8 tubing. We are open to suggestions with how to improve the battery pieces.
 
-![image](https://github.com/kgizzi/tulahoop/blob/master/guide/battery_6.JPG)
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/battery_6.jpg)
 
 3. Make multiples!
 
