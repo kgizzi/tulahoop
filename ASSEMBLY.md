@@ -2,17 +2,21 @@
 
 ### Battery Pieces
 
-![image](https://github.com/kgizzi/tulahoop/blob/master/guide/battery_2.jpg)
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/battery_2.JPG)
 
-![image](https://github.com/kgizzi/tulahoop/blob/master/guide/battery_3.jpg)
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/battery_3.JPG)
 
-1. Screw a spring onto the plastic end piece and solder wire to the other side. Make multiples.
+1. Screw a spring onto the plastic end piece and solder wire to the other side.
 
-![image](https://github.com/kgizzi/tulahoop/blob/master/guide/battery_4.jpg)
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/battery_4.JPG)
 
-![image](https://github.com/kgizzi/tulahoop/blob/master/guide/battery_5.jpg)
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/battery_5.JPG)
 
 2. We got creative and used split material to mold the end piece to fit securely inside the 5/8 tubing. We are open to suggestions with how to improve the battery pieces.
+
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/battery_6.JPG)
+
+3. Make multiples!
 
 
 ### Prepare the Hoop
