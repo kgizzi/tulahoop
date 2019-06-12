@@ -5,6 +5,7 @@
  */
 
 //#define HOOP_DEBUG
+#include <FastLED.h>
 
 /*
 
@@ -20,19 +21,22 @@ IR_PIN    0
 
 */
 
+// Config
+#define DATA_PIN  3
+#define CLOCK_PIN 2
+#define IR_PIN    0
+#define NUM_LEDS  150
+
 
 // Modes
 #define MODE_PATTERN  1
 #define MODE_IMAGE    2
-#define IR_PIN        0
+
 int mode = MODE_IMAGE;
 
 // LEDs
-#include <FastLED.h>
-#define DATA_PIN 2
-#define CLOCK_PIN 3
-#define NUM_LEDS 123
 CRGB leds[NUM_LEDS];
+CRGB onboard[1];
 int brightness = 72;
 
 // Solid Colors
@@ -61,6 +65,8 @@ const int PROGMEM cycleTime[] = { 2, 5, 10, 30 };
 int overlayTime = 0;
 CRGB overlayColor = CRGB::White;
 int overlayPercent = 0;
+
+bool blackOut = false;
 
 void setOverlay(int time, CRGB color, int percent) {
   overlayTime = time;
@@ -96,6 +102,10 @@ void setup() {
   FastLED.setMaxRefreshRate(3000);
   FastLED.clear();
   FastLED.setBrightness(brightness);
+
+  // Turn off onboard LED
+  onboard[0] = CRGB::Black;
+  FastLED.addLeds<APA102, 7, 8, BGR>(onboard, 1);
 
   // Set up timer
   startTimer(1); // frequency of 1 sec
@@ -141,6 +151,10 @@ void loop() {
     tick++;
   }
 
+  if (blackOut) {
+    fill_solid(leds, FastLED.size(), CRGB::Black);
+  }
+
   // Overlay
   if (overlayTime > 0) {
     // background
@@ -162,8 +176,8 @@ void TC3_Handler() {
     TC->INTFLAG.bit.MC0 = 1;
 
     // Write callback here!!!
-    Serial.print("cycleCount: ");
-    Serial.println(cycleCount);
+    //Serial.print("cycleCount: ");
+    //Serial.println(cycleCount);
 
     if (autoCycle) {
       if (cycleCount >= cycleTime[cycleTimeIndex]-1) {
@@ -171,7 +185,7 @@ void TC3_Handler() {
         if(++imageNumber >= NUM_IMAGES) imageNumber = 0;
         currentBitmap.next();
 
-        Serial.println("auto incrementing image");
+        //Serial.println("auto incrementing image");
       } else {
         cycleCount = cycleCount + 1;
       }

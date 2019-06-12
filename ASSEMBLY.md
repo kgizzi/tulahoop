@@ -111,11 +111,11 @@
 
 7. Carefully drill and dremel a 3mm hole in the inner tubing behind the capacitor and insert the nut. This will help lock the inner tubing in place and can be removed later to help disassemble if the hoop needs repair.
 
-8. Hot glue the remaining soldered connections to the controller and the LED strip to strengthen them. Be sure not to glue the micro USB port shut.
+8. Hot glue the remaining soldered connections to the controller and the LED strip to strengthen them. Be sure not to glue the micro USB port shut. Optionally cover the LEDs on the controller with opaque electrical tape so they aren't visible when the hoop is on.
 
 9. Figure out how many LEDs are needed for the size of hoop you are making.
 
-30 inch diameter hoop = 94.25 inches - minus 2.5 inches for the battery = 91.75 inches
+30 inch diameter hoop = 94.25 inches - (subtract) 2.5 inches for the battery = 91.75 inches
 
 Convert (91.75 inches) to meters = 2.33m
 
@@ -137,12 +137,13 @@ The density of the LED strip is 60 LEDs per meter = 140 LEDs (rounding up)
 
 1. With the light strip sticking out of the negative end, you will want to insert the 5/8 inner tubing most of the way into the outer tubing but do not push it all the way in! Leave room to pull it back out (using plyers if necessary).
 
-2. Solder on the negative battery piece to the GND end of the light strip, as close as possible. Lightly hot glue the connection to strengthen it.
+2. On the inner tubing, estimate where the push button should poke through, mark it and drill a hole so that it fits inside and easily pushes through the inner tubing. Reinsert the inner tubing as far as possible with being able to still pull it back out.
 
-3. Measure about a half an inch from the end and drill a hole on the side of the tube big enough for the head of a push button to easily slide through. Insert the push button underneath the LED strip, fully inside the hoop and line up the head so that it pops out of the hole.
+3. Solder on the negative battery piece to the GND end of the light strip, as close as possible. Lightly hot glue the connection to strengthen it.
 
 4. Pull the inner tubing back out into place resting against the battery connector.
 
+------
 
 5. Insert a battery into the hoop and connect the negative end in place. It should light up and work. DO NOT DISCONNECT YET! Carefully drill through the outer and inner tubing and insert a rivet to secure the negative end together.
 

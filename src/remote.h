@@ -123,6 +123,11 @@ void remoteControl(uint32_t command) {
         // Toggle auto cycle
         if (command == IR_PLAY) {
           autoCycle = !autoCycle;
+          if (autoCycle) {
+            setOverlay(2, CRGB::DarkGreen, 10);
+          } else {
+            setOverlay(2, CRGB::Red, 10);
+          }
           return;
         }
 
@@ -161,6 +166,12 @@ void remoteControl(uint32_t command) {
           return;
         }
 
+      }
+
+      // Toggle blackOut mode
+      if (command == IR_9) {
+        blackOut = !blackOut;
+        return;
       }
 
       // Debug moving mode

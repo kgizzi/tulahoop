@@ -57,11 +57,6 @@ View a demo video of the hoop here: https://youtu.be/MMnCFZ5w8NA
 
 Please see [ASSEMBLY.md](https://github.com/kgizzi/tulahoop/blob/master/ASSEMBLY.md)
 
-## Instructions
-
-### Steps with Images
-### Soldering
-### Assembling
 
 ### How to Load Bitmap Images
 
@@ -69,10 +64,10 @@ To convert bitmap image files to header files to program onto the hoop, you can 
 
 #### Convert Images
 
-Run these commands (must be in scripts directory):
+Run these commands (must be in scripts directory and path must include a trailing slash):
 ```
 cd scripts/
-./convert.sh /path/to/bitmap/images
+./convert.sh /path/to/bitmap/images/
 ```
 
 #### Add Images to Code
@@ -121,10 +116,12 @@ This mode can play bitmap images which are converted from file format to a C Hea
 | Button(s) | Action |
 | --------- |------- |
 | Right / Left | Change image pattern |
-| Play (Pause) | Toggle auto cycle mode |
+| Play (Pause) | Toggle auto cycle mode (green = play, red = stop) |
 | 1 | Auto cycle time of 2 seconds |
 | 2 | Auto cycle time of 5 seconds |
 | 3 | Auto cycle time of 10 & 30 seconds |
+| 9 | Blackout (all lights off) |
+
 
 ##### Pattern Mode
 

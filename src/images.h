@@ -31,7 +31,7 @@
 //#include "images/bias_cloud_blue_green.h"
 //#include "images/bias_cloud_pink_purple.h"
 #include "images/burst_flower_rbw.h"
-#include "images/chevron.h"
+//#include "images/chevron.h"
 #include "images/circles_big_blue_aqua.h"
 //#include "images/color_melt_zigzag.h"
 //#include "images/cretan_labyrinth_03.h"
@@ -56,11 +56,11 @@
 #include "images/melt_green.h"
 //#include "images/morph_tape_rasta.h"
 //#include "images/morph_tape_tropical_double.h"
-#include "images/purple_pink_starburst.h"
+//#include "images/purple_pink_starburst.h"    // deleted 3/4
 //#include "images/rainbow_ribbons.h"
 #include "images/sacred_geo_pink_purple.h"
 #include "images/sacred_geometric.h"
-#include "images/science_static_5_comets.h"
+//#include "images/science_static_5_comets.h"
 #include "images/sine_wave_t.h"
 #include "images/snowfall.h"
 #include "images/solid_gradient_cyan_orange.h"
@@ -103,7 +103,7 @@
 //#include "images/a3bc.h"
 #include "images/a62.h"
 //#include "images/a72.h"
-#include "images/a8.h"
+//#include "images/a8.h"
 #include "images/a95.h"
 //#include "images/atom.h"
 //#include "images/awesome.h"
@@ -143,13 +143,43 @@
 #include "images/zbears2.h"
 //#include "images/zigzag_rainbow_03.h"
 
-#include "images/cheshire.h"
+//#include "images/cheshire.h"              // deleted 3/4
 //#include "images/epic_eye.h"
 #include "images/mandala.h"
 #include "images/tealpinkdots.h"
 
 
+// Added 3/4
+//#include "images/174.h"
+//#include "images/EJHopticalillusion5.h"
+//#include "images/HKBcrossover1.h"
+#include "images/SM_sine.h"
+//#include "images/burst_rainbow_geometric.h"
+//#include "images/cheetah_pink_magenta.h"
+//#include "images/lattice_diamond_1.h"
+//#include "images/purples.h"
+//#include "images/purpyelloswtars.h"
+#include "images/rainbow_x_long.h"
+#include "images/spiral_green_blue_2.h"
+//#include "images/tye_dye_rainbow.h"
+
 const uint8_t* PROGMEM images[] {
+
+  // Added 3/4
+  //a174,
+  //EJHopticalillusion5,
+  //HKBcrossover1,
+  SM_sine,
+  //burst_rainbow_geometric,
+  //cheetah_pink_magenta,
+  //lattice_diamond_1,
+  //purples,
+  //purpyelloswtars,
+
+  spiral_green_blue_2,
+  //tye_dye_rainbow,
+  // End 3/4
+
 
   EJHbounce8,
   EJHbounce_sparkle4,
@@ -159,7 +189,7 @@ const uint8_t* PROGMEM images[] {
   NDWrbwstatic,
   a111_b,
   a62,
-  a8,
+  //a8,
   a95,
   blossom1,
   bluewiggle,
@@ -194,22 +224,23 @@ const uint8_t* PROGMEM images[] {
   arrow_green,
   bias_cloud_aqua_purple,
   burst_flower_rbw,
-  chevron,
+  //chevron,
   circles_big_blue_aqua,
   cretan_labyrinth_04,
   cretan_meander_rbw,           // maybe
   diamonds_seventies,           // maybe
   electric_comet_reactive,
+  rainbow_x_long,
   element_lightning_sunset,
   fire_purple_comet_r,
   greekfade1,
   grid_rainbow_03,
   interlock_line_rbw,
   melt_green,
-  purple_pink_starburst,
+  //purple_pink_starburst,      // deleted 3/4
   sacred_geo_pink_purple,
   sacred_geometric,
-  science_static_5_comets,
+  //science_static_5_comets,
   sine_wave_t,
   snowfall,
   solid_gradient_cyan_orange,
@@ -218,7 +249,7 @@ const uint8_t* PROGMEM images[] {
   sunrise_psychedelic,
   sunset_gradient_chaser,
 
-  cheshire,
+  //cheshire,                   // deleted 3/4
   mandala,
   tealpinkdots
 
