@@ -1,3 +1,7 @@
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/demo1.jpg)
+
+![image](https://github.com/kgizzi/tulahoop/blob/master/guide/demo2.jpg)
+
 tulahoop
 =============
 
