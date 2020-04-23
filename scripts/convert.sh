@@ -2,7 +2,7 @@
 for f in $1*.bmp ;
 do
   echo "File: $f"
-  python bin2header.py $f
+  python3 bin2header.py $f
   header=${f%.*p}
   echo "Header: $header.h"
   mv $header.h ../src/images/

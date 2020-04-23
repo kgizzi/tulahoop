@@ -1,4 +1,6 @@
+.pio
 .pioenvs
 .piolibdeps
 *.DS_Store
 *IMG_*.jpg
+

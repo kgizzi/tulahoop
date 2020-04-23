@@ -148,6 +148,8 @@
 #include "images/mandala.h"
 #include "images/tealpinkdots.h"
 
+#include "images/adventure_gunter.h"
+#include "images/adventure_lr.h"
 
 // Added 3/4
 //#include "images/174.h"
@@ -250,8 +252,11 @@ const uint8_t* PROGMEM images[] {
   sunset_gradient_chaser,
 
   //cheshire,                   // deleted 3/4
-  mandala,
-  tealpinkdots
+  //mandala,
+  //tealpinkdots,
+
+  adventure_gunter,
+  adventure_lr
 
 
 /*
