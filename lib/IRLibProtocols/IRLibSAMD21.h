@@ -85,16 +85,16 @@
   //Settings for Arduino MKR 1000.
   //Default is 6. Only 0-12 or 18-21 (Note: 18-21 is also A3-A6)
   #define IR_SEND_PWM_PIN 6
-  #if ((IR_SEND_PWM_PIN > 21) || ( (IR_SEND_PWM_PIN > 12) && (IR_SEND_PWM_PIN  18)) )
-    #error "Unsupported output pin on Arduino MKR 1000.
+  #if ((IR_SEND_PWM_PIN > 21) || ( (IR_SEND_PWM_PIN > 12) && (IR_SEND_PWM_PIN < 18)) )
+    #error "Unsupported output pin on Arduino MKR 1000." //issue 56 error?
   #endif
-#elif (defined(ARDUINO_SAMD_FEATHER_M0) || defined(ARDUINO_SAMD_FEATHER_M0_EXPRESS) )
+#elif (defined(ADAFRUIT_FEATHER_M0) || defined(ARDUINO_SAMD_FEATHER_M0_EXPRESS) )
   //Settings for Adafruit Feather M0 or Adafruit Feather M0 Express
   //Default is 9. Available on all Feather M0 are 0,1,5,6,9-13,17/A3,18/A4
   //On the standard M0 20/SDA, 21/SCL, 22/MISO, 23/MOSI, 24/SCK
   //On the M0 Express  26/SDA, 27/SCL, 28/MISO, 29/MOSI, 30/SCK
   //Only the pin numbers are different so use the labels.
-  #define IR_SEND_PWM_PIN 9
+  #define IR_SEND_PWM_PIN 12//9
   #if (  ( (IR_SEND_PWM_PIN>1)  && (IR_SEND_PWM_PIN<5) )  \
 	  || ( (IR_SEND_PWM_PIN>19) && (IR_SEND_PWM_PIN<PIN_WIRE_SDA) ) \
       || ( (IR_SEND_PWM_PIN>13) && (IR_SEND_PWM_PIN<17) ) \
@@ -121,7 +121,7 @@
   #if ( ( (IR_SEND_PWM_PIN > 21) && (IR_SEND_PWM_PIN < 27) ) \
        || (IR_SEND_PWM_PIN > 28) || (IR_SEND_PWM_PIN == 14)  \
 	   || (IR_SEND_PWM_PIN == 15) )
-    #error "Unsupported output pin on Arduino M0 Pro
+    #error "Unsupported output pin on Arduino M0 Pro"
   #endif
 #elif defined (ARDUINO_SAMD_ZERO)
   //Settings for Arduino Zero
@@ -130,7 +130,7 @@
   #if ( (IR_SEND_PWM_PIN > 24) \
    || ( (IR_SEND_PWM_PIN > 13) && (IR_SEND_PWM_PIN < 17)) \
    || (IR_SEND_PWM_PIN == 19) )
-    #error "Unsupported output pin on Arduino Zero
+    #error "Unsupported output pin on Arduino Zero"
   #endif
 #else //Other generic SAMD 21 boards
   //Default is 9.

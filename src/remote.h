@@ -166,6 +166,21 @@ void remoteControl(uint32_t command) {
           return;
         }
 
+        // Toggle Sync Mode
+        if (command == IR_7) {
+          if (syncMode == SYNC_OFF) {
+            syncMode = SYNC_SECONDARY;
+            setOverlay(2, CRGB::Yellow, 66);
+          } else if (syncMode == SYNC_SECONDARY) {
+            syncMode = SYNC_PRIMARY;
+            setOverlay(2, CRGB::Yellow, 100);
+          } else if (syncMode == SYNC_PRIMARY) {
+            syncMode = SYNC_OFF;
+            setOverlay(2, CRGB::Yellow, 33);
+          }
+          return;
+        }
+
       }
 
       // Toggle blackOut mode

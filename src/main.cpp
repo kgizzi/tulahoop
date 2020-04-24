@@ -22,10 +22,16 @@ IR_PIN    0
 */
 
 // Config
-#define DATA_PIN  3
-#define CLOCK_PIN 2
-#define IR_PIN    0
-#define NUM_LEDS  150
+#define DATA_PIN  4
+#define CLOCK_PIN 3
+#define IR_PIN    2
+
+// Breadboard
+#define NUM_LEDS  40
+
+
+// Normal:
+//#define NUM_LEDS  150
 
 
 // Modes
@@ -33,6 +39,11 @@ IR_PIN    0
 #define MODE_IMAGE    2
 
 int mode = MODE_IMAGE;
+
+#define SYNC_OFF       0
+#define SYNC_SECONDARY 1
+#define SYNC_PRIMARY   2
+int syncMode = SYNC_OFF;
 
 // LEDs
 CRGB leds[NUM_LEDS];
@@ -82,13 +93,17 @@ int imageNumber = 0;
 #include "images.h"
 
 // IR Remote
+#include <IRLibSendBase.h>
 #include <IRLibRecv.h>
 #include <IRLibDecodeBase.h>
 #include <IRLib_P01_NEC.h>
+#include <IRLib_P04_RC6.h>
+#include <IRLibCombo.h>
 #include "remote.h"
 
 IRrecv irReceiver(IR_PIN); // Pin 0
-IRdecodeNEC remoteDecoder;
+IRdecode remoteDecoder;
+IRsend irSender;
 
 void setup() {
   Serial.begin(9600);
@@ -120,7 +135,13 @@ void loop() {
     // Debug remote codes:
     //remoteDecoder.dumpResults(true);  //Now print results. Use false for less detail
 
-    remoteControl(remoteDecoder.value);
+    if (remoteDecoder.protocolNum == NEC) {
+      remoteControl(remoteDecoder.value);
+    } else if (syncMode == SYNC_SECONDARY && remoteDecoder.protocolNum == RC6) {
+      // Process sync commands
+      //remoteDecoder.dumpResults(true);
+      Serial.println("Sync SYNC_SECONDARY");
+    }
 
     // Debug output
 #ifdef HOOP_DEBUG
@@ -132,6 +153,13 @@ void loop() {
       Serial.println(brightness);
       Serial.print("\n");
 #endif
+
+    irReceiver.enableIRIn();      //Restart receiver
+  }
+
+  if (syncMode == SYNC_PRIMARY) {
+    irSender.send(RC6, 0x12ab, 0);
+
 
     irReceiver.enableIRIn();      //Restart receiver
   }
@@ -160,7 +188,7 @@ void loop() {
     // background
     fill_solid(leds, FastLED.size(), CRGB::Black);
     //fill_solid(leds, (int)((overlayPercent/100)*FastLED.size()), overlayColor);
-    Serial.println((overlayPercent/100.0)*NUM_LEDS);
+    //Serial.println((overlayPercent/100.0)*NUM_LEDS);
     for (int i=0; i <= ((overlayPercent/100.0)*NUM_LEDS)-1; i++) {
       leds[i] = overlayColor;
     }
