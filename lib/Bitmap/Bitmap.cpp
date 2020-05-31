@@ -160,6 +160,7 @@ template<typename SourceType> BMP_Status Bitmap::_load(SourceType &source)
 void Bitmap::next() {
   free(palette);
   loaded = false;
+  sendSync = true;
 }
 
 void Bitmap::displayRow(const uint8_t *pgm_addr, uint8_t tick) {

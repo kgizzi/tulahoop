@@ -46,6 +46,8 @@ public:
   uint16_t getHeight() { return height; };
   uint16_t getDepth() { return bpp; };
 
+  boolean sendSync;
+
 
 protected:
   uint16_t width, height, bpp, compression;

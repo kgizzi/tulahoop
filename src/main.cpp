@@ -26,8 +26,10 @@ IR_PIN    0
 #define CLOCK_PIN 3
 #define IR_PIN    2
 
+#define NUM_LEDS  120
+
 // Breadboard
-#define NUM_LEDS  40
+//#define NUM_LEDS  40
 
 
 // Normal:
@@ -128,6 +130,29 @@ void setup() {
 
 
 void loop() {
+
+  // If master, send sync IR commands
+  if (currentBitmap.sendSync && syncMode == SYNC_PRIMARY) {
+    currentBitmap.sendSync = false;
+    Serial.println("Sending Sync");
+
+    uint16_t syncCommand = (autoCycle << 12) | (cycleTimeIndex << 8) | imageNumber;
+
+    Serial.print(F("autoCycle: "));
+    Serial.println(autoCycle);
+    Serial.print(F("cycleTimeIndex: "));
+    Serial.println(cycleTimeIndex);
+    Serial.print(F("imageNumber: "));
+    Serial.println(imageNumber);
+    Serial.print(F("syncCommand: "));
+    Serial.println(syncCommand);
+    Serial.print("\n\n");
+
+    irSender.send(RC6, syncCommand, 0);
+
+    irReceiver.enableIRIn();      //Restart receiver
+  }
+
   //Continue looping until you get a complete signal received
   if (irReceiver.getResults()) {
     remoteDecoder.decode();
@@ -137,10 +162,52 @@ void loop() {
 
     if (remoteDecoder.protocolNum == NEC) {
       remoteControl(remoteDecoder.value);
-    } else if (syncMode == SYNC_SECONDARY && remoteDecoder.protocolNum == RC6) {
+    }
+
+    Serial.println("IR received");
+    if (syncMode == SYNC_SECONDARY && remoteDecoder.protocolNum == RC6) {
       // Process sync commands
       //remoteDecoder.dumpResults(true);
       Serial.println("Sync SYNC_SECONDARY");
+      remoteDecoder.dumpResults(true);
+
+      int decodedAutoCycle = remoteDecoder.value >> 12;
+      int decodedCycleTimeIndex = 0x000F & (remoteDecoder.value >> 8);
+      int decodedImageNumber = 0x00FF & remoteDecoder.value;
+
+      Serial.print(F("Received: "));
+      Serial.println(remoteDecoder.value);
+      Serial.print(F("decodedAutoCycle: "));
+      Serial.println(decodedAutoCycle);
+      Serial.print(F("decodedCycleTimeIndex: "));
+      Serial.println(decodedCycleTimeIndex);
+      Serial.print(F("decodedImageNumber: "));
+      Serial.println(decodedImageNumber);
+      Serial.print("\n\n");
+
+      // Sanity check the signal
+      if (decodedAutoCycle >= 0 && decodedAutoCycle <= 1 && decodedAutoCycle >= 0 &&
+        decodedAutoCycle <= 3 && decodedImageNumber >= 0 && decodedImageNumber < NUM_IMAGES) {
+
+        Serial.println(F("Valid signal received!"));
+
+        if (decodedAutoCycle == 0) {
+          autoCycle = false;
+        } else {
+          autoCycle = 1;
+        }
+
+        cycleTimeIndex = decodedCycleTimeIndex;
+
+        //if (imageNumber != decodedImageNumber) {
+          imageNumber = decodedImageNumber;
+          cycleCount = 0;
+          currentBitmap.next();
+          startTimer(1);
+          Serial.println(F("Image updated!"));
+        //}
+
+      }
     }
 
     // Debug output
@@ -157,12 +224,7 @@ void loop() {
     irReceiver.enableIRIn();      //Restart receiver
   }
 
-  if (syncMode == SYNC_PRIMARY) {
-    irSender.send(RC6, 0x12ab, 0);
 
-
-    irReceiver.enableIRIn();      //Restart receiver
-  }
 
   // Display LEDs
   if (mode == MODE_PATTERN) {

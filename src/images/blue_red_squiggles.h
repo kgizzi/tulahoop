@@ -1,6 +1,6 @@
 
 // Generated with bin2header.py by Freetronics
-// Source file name: /Users/keenan/Downloads/tulahoop_patterns2.19/blue_red_squiggles.bmp
+// Source file name: /Users/keenan/Downloads/HoopPatterns20200523/blue_red_squiggles.bmp
 
 #include <stdint.h>
 

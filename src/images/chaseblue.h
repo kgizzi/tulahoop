@@ -1,6 +1,6 @@
 
 // Generated with bin2header.py by Freetronics
-// Source file name: /Users/keenan/Downloads/tulahoop_patterns2.19/chaseblue.bmp
+// Source file name: /Users/keenan/Downloads/extra_boujie/chaseblue.bmp
 
 #include <stdint.h>
 
