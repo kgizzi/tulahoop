@@ -45,17 +45,42 @@ void remoteControl(uint32_t command) {
         Serial.println(F("Setting mode to:"));
         if (command == IR_1) { mode = MODE_PATTERN; Serial.println(F("PATTERN\n")); }
         else if (command == IR_2) { mode = MODE_IMAGE; Serial.println(F("IMAGE\n")); }
+        else if (command == IR_0) {
+          cycleByTen = !cycleByTen;
+          if (cycleByTen) { setOverlay(2, CRGB::Pink, 100); }
+          else { setOverlay(2, CRGB::Pink, 50); }
+        }
 
         // Done setting mode whether it was successful or not
         settingMode = false;
         return;
       }
 
+      // Toggle auto cycle
+      if (command == IR_PLAY) {
+        autoCycle = !autoCycle;
+        if (autoCycle) {
+          setOverlay(2, CRGB::DarkGreen, 10);
+        } else {
+          setOverlay(2, CRGB::Red, 10);
+        }
+        return;
+      }
+
       // Pattern Mode Controls
       if (mode == MODE_PATTERN) {
 
-        // Switch Background Color
         if (command == IR_LEFT) {
+          if(--patternNumber < 0) patternNumber = NUM_PATTERNS - 1;
+          return;
+        }
+        if (command == IR_RIGHT) {
+          if(++patternNumber >= NUM_PATTERNS) patternNumber = 0;
+          return;
+        }
+
+        // Switch Background Color
+        if (command == IR_4) {
           if ((colorIndex-1)<0) { colorIndex=NUM_COLORS-1; }
           else { colorIndex--; }
           // Switch chaser
@@ -65,7 +90,7 @@ void remoteControl(uint32_t command) {
           }
           return;
         }
-        if (command == IR_RIGHT) {
+        if (command == IR_5) {
           if ((colorIndex+1)>=NUM_COLORS) { colorIndex=0; }
           else { colorIndex++; }
           // Switch chaser
@@ -96,7 +121,7 @@ void remoteControl(uint32_t command) {
 
         // Number of Chasers
         if (command == IR_UP) {
-          if ((chaserCount+1)> 7) { return; }
+          if ((chaserCount+1)> 16) { return; }
           else { chaserCount++; }
           return;
         }
@@ -120,20 +145,17 @@ void remoteControl(uint32_t command) {
           return;
         }
 
-        // Toggle auto cycle
-        if (command == IR_PLAY) {
-          autoCycle = !autoCycle;
-          if (autoCycle) {
-            setOverlay(2, CRGB::DarkGreen, 10);
-          } else {
-            setOverlay(2, CRGB::Red, 10);
-          }
+        // Increase image number by 10
+        if (command == IR_0) {
+          imageNumber = (imageNumber+10)%NUM_IMAGES;
+          currentBitmap.next();
           return;
         }
 
-        // Increase auto cycle times
+        // Increase image number by 10
         if (command == IR_BACK) {
-          if(++cycleTimeIndex >= NUM_TIMES) cycleTimeIndex = 0;
+          imageNumber = (imageNumber-10)%NUM_IMAGES;
+          currentBitmap.next();
           return;
         }
 

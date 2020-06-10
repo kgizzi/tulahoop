@@ -10,18 +10,18 @@
 //#include "images/purple_root.h"                 // deleted 5/23
 #include "images/squares_color_01.h"              // maybe
 //#include "images/trance_hypnosis.h"
-#include "images/science_rbw_waveform.h"
+//#include "images/science_rbw_waveform.h"
 //#include "images/stripe_sparkle_01.h"           // deleted 5/23
-#include "images/purple_rain_02.h"
-#include "images/green_waves.h"
+//#include "images/purple_rain_02.h"
+//#include "images/green_waves.h"
 #include "images/chevron_purple.h"
 #include "images/greek_rainbow_01.h"
 #include "images/everything_rbw_02.h"
-#include "images/grid_t.h"
+//#include "images/grid_t.h"
 //#include "images/element_flames_blue_2.h"       // deleted 5/23
-#include "images/flower_of_life_rainbow_1.h"
+//#include "images/flower_of_life_rainbow_1.h"
 //#include "images/melt_purple.h"                 // deleted 5/23
-#include "images/sacred_geo_cyan.h"
+//#include "images/sacred_geo_cyan.h"
 //#include "images/solid_rainbow_brite_chase.h"
 //#include "images/stripes_bounce_pink_green.h"
 //#include "images/GMHP3.h"
@@ -36,14 +36,14 @@
 //#include "images/color_melt_zigzag.h"
 //#include "images/cretan_labyrinth_03.h"
 //#include "images/cretan_labyrinth_04.h"       // deleted 5/23
-#include "images/cretan_meander_rbw.h"          // maybe
-#include "images/diamonds_seventies.h"          // maybe
+//#include "images/cretan_meander_rbw.h"          // maybe
+//#include "images/diamonds_seventies.h"          // maybe
 //#include "images/dot_chase_5_t.h"
 //#include "images/dots_lines.h"
 //#include "images/earth_gradient_melt.h"
 //#include "images/electric_comet_reactive.h"   // deleted 5/23
 //#include "images/element_chaser_fire_balls.h"
-#include "images/element_lightning_sunset.h"
+//#include "images/element_lightning_sunset.h"
 //#include "images/element_static_fireballs.h"
 #include "images/fire_purple_comet_r.h"
 //#include "images/flowers_purple.h"
@@ -63,13 +63,13 @@
 //#include "images/science_static_5_comets.h"
 #include "images/sine_wave_t.h"
 #include "images/snowfall.h"
-#include "images/solid_gradient_cyan_orange.h"
+//#include "images/solid_gradient_cyan_orange.h"
 //#include "images/stars_grad_sunset_sparkle.h" // deleted 5/23
 //#include "images/strobe_switch_react_rbw.h"
 //#include "images/strobe_switch_react_sun.h"
 //#include "images/strobe_tex_sunrise_04.h"
 //#include "images/strobe_tex_sunset_05.h"
-#include "images/strobe_tex_sunset_wiggle_w.h"
+//#include "images/strobe_tex_sunset_wiggle_w.h"
 //#include "images/sunrise_psychedelic.h"      // deleted 5/23
 #include "images/sunset_gradient_chaser.h"
 //#include "images/tiles_rainbow.h"
@@ -145,8 +145,8 @@
 
 //#include "images/cheshire.h"              // deleted 3/4
 //#include "images/epic_eye.h"
-#include "images/mandala.h"
-#include "images/tealpinkdots.h"
+//#include "images/mandala.h"
+//#include "images/tealpinkdots.h"
 
 //#include "images/adventure_gunter.h"
 //#include "images/adventure_lr.h"
@@ -183,7 +183,7 @@
 //#include "images/lineblue.h"
 #include "images/lisaFrak.h"
 //#include "images/pattern1.h"
-#include "images/pattern_17_fast.h"
+//#include "images/pattern_17_fast.h"
 //#include "images/plain_ninja_lines.h"
 #include "images/pop02.h"
 //#include "images/purple_rain_01.h"
@@ -198,8 +198,8 @@
 #include "images/twinVines.h"
 
 // Added 5/25
-#include "images/Wayv.h"
-#include "images/bursts2.h"
+//#include "images/Wayv.h"
+//#include "images/bursts2.h"
 //#include "images/wavesgradient.h"
 //#include "images/zyellow.h"
 
@@ -236,7 +236,7 @@
 #include "images/fractals_29.h"
 #include "images/sacred_rainbow.h"
 //#include "images/sawTooth.h"
-#include "images/sawToothpinkgreen.h"
+//#include "images/sawToothpinkgreen.h"
 
 // Added 5/31/2020
 //#include "images/circles_psychedelic_2.h"
@@ -245,183 +245,106 @@
 //#include "images/helix_white.h"
 #include "images/pastel_rain_waffle.h"
 #include "images/pink_lemonade.h"
-#include "images/ripple_rainbow.h"
+//#include "images/ripple_rainbow.h"
 #include "images/sinRain.h"
 //#include "images/sparkle_chasers_1bt.h"
-#include "images/spiral_green_blue_2.h"
+//#include "images/spiral_green_blue_2.h"
 //#include "images/spiral_red_blue.h"
-#include "images/square_step_chase_t.h"
+//#include "images/square_step_chase_t.h"
 //#include "images/tetris_rbw.h"
 //#include "images/tye_dye_rainbow.h"
-#include "images/white_spiral.h"
+//#include "images/white_spiral.h"
+
+// Added 6/3/2020
+#include "images/blue_colordot_sineWave.h"
+//#include "images/colorSpiralFire.h"
+#include "images/crazySin.h"
+#include "images/crissCross.h"
+//#include "images/epic_eye.h"
+#include "images/flowerSine.h"
+#include "images/gradient_aqua_purples.h"
+//#include "images/isthiseven.h"
+#include "images/neon.h"
+#include "images/triangles.h"
+//#include "images/vine.h"
+#include "images/zigSquares.h"
+#include "images/zigzaggypinkpurpleyellow.h"
+
+#include "images/Triangle_overlord_copy.h"
+//#include "images/psyctriangles_copy.h"
+//#include "images/rainbowMess_copy.h"
+#include "images/rainbowPrismGem_copy.h"
 
 const uint8_t* PROGMEM images[] {
 
-  // Added 5/31/2020
-  //circles_psychedelic_2,
-  //diamond_grid_1bt,
-  geo_pastel_pattern,
-  //helix_white,
-  pastel_rain_waffle,
-  pink_lemonade,
-  ripple_rainbow,
-  sinRain,
-  //sparkle_chasers_1bt,
-  //spiral_red_blue,
-  square_step_chase_t,
-  //tetris_rbw,
-  //tye_dye_rainbow,
-  white_spiral,
-
-  // Recent
-  //bw_burst,
-  fractals_29,
-  sacred_rainbow,
-  //sawTooth,
-  sawToothpinkgreen,
-
-  // Added 5/25/2020
-  Wayv,
-  bursts2,
-  //wavesgradient,
-  //zyellow,
-
+  geo_pastel_pattern, // first
+  blue_colordot_sineWave,
+  crazySin,
+  crissCross,
+  flowerSine,
+  neon,
+  triangles,
+  zigSquares,
+  zigzaggypinkpurpleyellow,
+  burst_flower_rbw,
+  //white_spiral,
   A_Key2,
-  //A_eyeRainbow,
-  A_freeWaves,
-  //A_illusion,
-  //A_neon,
-  //B_blocky_diamond,
   B_chasingrainbow,
-  B_circle_star,
-  B_photon_gradient_dots_sao,
-  //B_strobe_orangepurple,
-  C_synthWiggle,
-  //EJHbrick1,
-  a_pop,
-  //c_neon,
-  c_spectrum,
-  //chaseblue,
-  //crazyzebra,
-  //diamondZigSquares,
-  //dumb2,
-  //dumb3,
-  //neonTriangles,
-  //orange,
-  //sawTooth,
-  //sinWave,
-  //squares_on_squares,
-  starBounceGreen,
-  //z62,
-  //z_carrots,
-
-  // Added 5/23/2020
-  //Blossoms,
-  a093,
-  awesome,
-  //blue_red_squiggles,
-  //chaserWater04,
-  chaserandsparkles,
-  chevron_safari_sky,
-  //dot_dashes_t_w,
-  flowerWave1,
-  //gradientSparkle20,
-  interlock22,
-  iso_green_whitestrobe,
-  //keys,
-  //lineblue,
-  lisaFrak,
-  //pattern1,
-  pattern_17_fast,
-  //plain_ninja_lines,
-  pop02,
-  //purple_rain_01,
-  //rainbowSoundDecay,
-  //rainboxchase,
-  //rbw_reactive_4_rbw_4_rbw,
-  runningOutOfIdeas,
-  sine,
-  stars_purple_pink,
-  //static_sparkle_blue_green,
-  strobedaisy,
-  twinVines,
-
-  // Added 3/4
-  SM_sine,
-  //spiral_green_blue_2,
-  EJHbounce8,
-  //EJHbounce_sparkle4,
-  //NDWrbwstatic,
-  //a111_b,
-  a62,
-  //a95,
-  blossom1,
   burst_blue_sun,
   chase_gradient_grid_sea,
-  //flake1,
-  //hearts_gradient_02,
-  sacred_honeycomb_teal,
-  //chaser_sparkle,
-  burst_sunset_gradient,
-  flower_of_life_rainbow_2,
-  squares_color_01,             // maybe
-  science_rbw_waveform,
-
-  // Temp Removed
-  purple_rain_02,
-  green_waves,
-  chevron_purple,
-  greek_rainbow_01,
+  c_spectrum,
+  a_pop,
+  sacred_rainbow,
+  sinRain,
+  rainbowPrismGem_copy,
   everything_rbw_02,
-  grid_t,
-  flower_of_life_rainbow_1,
-  sacred_geo_cyan,
-  arrow_blue_green,
-  arrow_green,
-  bias_cloud_aqua_purple,
-  burst_flower_rbw,
-
-
-  circles_big_blue_aqua,
-  cretan_meander_rbw,           // maybe
-  diamonds_seventies,           // maybe
-  fire_purple_comet_r,
-
-
   greekfade1,
-  grid_rainbow_03,
   sacred_geo_pink_purple,
-  sacred_geometric,
-  sine_wave_t,
+  a62,
+  //grid_t,
+  grid_rainbow_03,
+  strobedaisy,
+  arrow_green,
+  A_freeWaves,
+  chevron_purple,
+  lisaFrak,
+  pop02,
+  chevron_safari_sky,
+  awesome,
+  iso_green_whitestrobe,
+  Triangle_overlord_copy,
+  arrow_blue_green,
   snowfall,
-  solid_gradient_cyan_orange,
-  strobe_tex_sunset_wiggle_w,
-  sunset_gradient_chaser
-
-
-
-  // Removed 5/23
-
-  //EJHwaterloorbw2,            // Removed 5/23
-  ///JEBaztec,                  // Removed 5/23
-  //JMSFdoublehelix,            // Removed 5/23
-  //bluewiggle,                 // Removed 5/23
-  //chooploverb,                // Removed 5/23
-  //zbears2,                    // Removed 5/23
-  //eye_ball_chaser,            // Removed 5/23
-  //psychedelic_16,             // Removed 5/23
-  //purple_root,                // Removed 5/23
-  //stripe_sparkle_01,          // Removed 5/23
-  //element_flames_blue_2,      // Removed 5/23
-  //melt_purple,                // Removed 5/23
-  //cretan_labyrinth_04,        // Removed 5/23
-  //electric_comet_reactive,    // Removed 5/23
-  //rainbow_x_long,             // Removed 5/23
-  //element_lightning_sunset,   // Removed 5/23
-  //interlock_line_rbw,         // Removed 5/23
-  //melt_green,                 // Removed 5/23
-  //stars_grad_sunset_sparkle,  // Removed 5/23
-  //sunrise_psychedelic,        // Removed 5/23
+  circles_big_blue_aqua,
+  fractals_29,
+  fire_purple_comet_r,
+  starBounceGreen,
+  B_circle_star,
+  sacred_honeycomb_teal,
+  greek_rainbow_01,
+  runningOutOfIdeas,
+  twinVines,
+  pink_lemonade,
+  interlock22,
+  bias_cloud_aqua_purple,
+  flower_of_life_rainbow_2,
+  sacred_geometric,
+  squares_color_01,
+  a093,
+  SM_sine,
+  sine_wave_t,
+  burst_sunset_gradient,
+  EJHbounce8,
+  chaserandsparkles,
+  flowerWave1,
+  C_synthWiggle,
+  blossom1,
+  pastel_rain_waffle,
+  B_photon_gradient_dots_sao,
+  sunset_gradient_chaser,
+  sine,
+  stars_purple_pink,
+  gradient_aqua_purples // last
 
 };
 

@@ -70,7 +70,7 @@
 #elif defined(ADAFRUIT_TRINKET_M0)
   //Settings for Adafruit Trinket M0.
   //Default is 0. Only 0, 2, 3, or 4 can be used
-  #define IR_SEND_PWM_PIN 0
+  #define IR_SEND_PWM_PIN 4
   #if ((IR_SEND_PWM_PIN > 4) || (IR_SEND_PWM_PIN == 1))
     #error "Unsupported output pin on Adafruit Trinket M0"
   #endif

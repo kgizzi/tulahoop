@@ -22,11 +22,11 @@ IR_PIN    0
 */
 
 // Config
-#define DATA_PIN  4
-#define CLOCK_PIN 3
-#define IR_PIN    2
+#define DATA_PIN  3
+#define CLOCK_PIN 2
+#define IR_PIN    0
 
-#define NUM_LEDS  120
+#define NUM_LEDS  118
 
 // Breadboard
 //#define NUM_LEDS  40
@@ -39,7 +39,6 @@ IR_PIN    0
 // Modes
 #define MODE_PATTERN  1
 #define MODE_IMAGE    2
-
 int mode = MODE_IMAGE;
 
 #define SYNC_OFF       0
@@ -54,20 +53,33 @@ int brightness = 72;
 
 // Solid Colors
 const CRGB PROGMEM colors[] = {
-  CRGB::White, CRGB::Red, CRGB::Purple, CRGB::Blue, CRGB::Green,
-  CRGB::Yellow, CRGB::Orange, CRGB::Pink, CRGB::Black,
-  CRGB::Magenta, CRGB::LimeGreen, CRGB::Teal, CRGB::SeaGreen
+  CRGB::Black, CRGB::White, CRGB::Yellow, CRGB::Magenta, CRGB::Orange,
+  CRGB::SlateBlue, CRGB::Green, CRGB::Orchid, CRGB::LimeGreen,
+  CRGB::Purple, CRGB::Pink, CRGB::CornflowerBlue, CRGB::BlueViolet,
+  CRGB::Coral, CRGB::Fuchsia, CRGB::DarkTurquoise, CRGB::Gold,
+  CRGB::Blue, CRGB::Indigo, CRGB::DeepPink, CRGB::Teal,
+  CRGB::SeaGreen, CRGB::Navy
 };
 #define NUM_COLORS (sizeof(colors) / sizeof(colors[0]))
+const CRGB PROGMEM chaserColors[] = {
+  CRGB::White, CRGB::Yellow, CRGB::Magenta, CRGB::Orange,
+  CRGB::SlateBlue, CRGB::Green, CRGB::Orchid, CRGB::LimeGreen,
+  CRGB::Purple, CRGB::Pink, CRGB::CornflowerBlue, CRGB::BlueViolet,
+  CRGB::Coral, CRGB::Fuchsia, CRGB::DarkTurquoise, CRGB::Gold,
+  CRGB::Blue, CRGB::Indigo, CRGB::DeepPink, CRGB::Teal,
+  CRGB::SeaGreen, CRGB::Navy
+};
+#define NUM_CHASER_COLORS (sizeof(chaserColors) / sizeof(chaserColors[0]))
 int colorIndex = 0;
-int chaserIndex = 1;
-int chaserCount = 0;
+int chaserIndex = 0;
+int chaserCount = 1;
 
-bool chaserMoving = false;
-uint8_t tick = 0;
+bool chaserMoving = true;
+uint32_t tick = 0;
 
 // Auto Cycle / Timers
 bool autoCycle = true; // default to auto cycle on
+bool cycleByTen = false;
 #include "timer.h"
 int cycleCount = 0;
 int cycleTimeIndex = 1;
@@ -86,6 +98,10 @@ void setOverlay(int time, CRGB color, int percent) {
   overlayColor = color;
   overlayPercent = percent;
 };
+
+// Patterns
+int patternNumber = 0;
+#include "patterns.h"
 
 // Images
 #include <Bitmap.h>
@@ -138,6 +154,7 @@ void loop() {
 
     uint16_t syncCommand = (autoCycle << 12) | (cycleTimeIndex << 8) | imageNumber;
 
+    /*
     Serial.print(F("autoCycle: "));
     Serial.println(autoCycle);
     Serial.print(F("cycleTimeIndex: "));
@@ -147,6 +164,7 @@ void loop() {
     Serial.print(F("syncCommand: "));
     Serial.println(syncCommand);
     Serial.print("\n\n");
+    */
 
     irSender.send(RC6, syncCommand, 0);
 
@@ -175,6 +193,7 @@ void loop() {
       int decodedCycleTimeIndex = 0x000F & (remoteDecoder.value >> 8);
       int decodedImageNumber = 0x00FF & remoteDecoder.value;
 
+      /*
       Serial.print(F("Received: "));
       Serial.println(remoteDecoder.value);
       Serial.print(F("decodedAutoCycle: "));
@@ -184,6 +203,7 @@ void loop() {
       Serial.print(F("decodedImageNumber: "));
       Serial.println(decodedImageNumber);
       Serial.print("\n\n");
+      */
 
       // Sanity check the signal
       if (decodedAutoCycle >= 0 && decodedAutoCycle <= 1 && decodedAutoCycle >= 0 &&
@@ -228,13 +248,8 @@ void loop() {
 
   // Display LEDs
   if (mode == MODE_PATTERN) {
-    fill_solid(leds, FastLED.size(), colors[colorIndex]);
-    for (int c=0; c<chaserCount; c++) {
-      int space = NUM_LEDS / chaserCount;
-      leds[((c*space)+tick)%NUM_LEDS] = colors[chaserIndex];
-      if (chaserMoving) { tick++; }
-    }
-
+    (*patterns[patternNumber])();
+    if (chaserMoving) { tick++; }
   }
   else if (mode == MODE_IMAGE) {
     currentBitmap.displayRow(images[imageNumber], tick);
@@ -249,13 +264,12 @@ void loop() {
   if (overlayTime > 0) {
     // background
     fill_solid(leds, FastLED.size(), CRGB::Black);
-    //fill_solid(leds, (int)((overlayPercent/100)*FastLED.size()), overlayColor);
-    //Serial.println((overlayPercent/100.0)*NUM_LEDS);
     for (int i=0; i <= ((overlayPercent/100.0)*NUM_LEDS)-1; i++) {
       leds[i] = overlayColor;
     }
   }
 
+  onboard[0] = CRGB::Black;
   FastLED.show();
 }
 
@@ -265,17 +279,23 @@ void TC3_Handler() {
   if (TC->INTFLAG.bit.MC0 == 1) {
     TC->INTFLAG.bit.MC0 = 1;
 
-    // Write callback here!!!
-    //Serial.print("cycleCount: ");
-    //Serial.println(cycleCount);
-
     if (autoCycle) {
       if (cycleCount >= cycleTime[cycleTimeIndex]-1) {
         cycleCount = 0;
-        if(++imageNumber >= NUM_IMAGES) imageNumber = 0;
-        currentBitmap.next();
-
-        //Serial.println("auto incrementing image");
+        if (mode == MODE_PATTERN) {
+          if (cycleByTen) {
+            patternNumber = (patternNumber + 10) % NUM_PATTERNS;
+          } else {
+            if(++patternNumber >= NUM_PATTERNS) patternNumber = 0;
+          }
+        } else if (mode == MODE_IMAGE) {
+          if (cycleByTen) {
+            imageNumber = (imageNumber + 10) % NUM_IMAGES;
+          } else {
+            if(++imageNumber >= NUM_IMAGES) imageNumber = 0;
+          }
+          currentBitmap.next();
+        }
       } else {
         cycleCount = cycleCount + 1;
       }
